@@ -1,23 +1,22 @@
 clc
 clear
 iteration=0;
-x0=input("Enter the value of x0:");
+x0=input("Enter the value of x0:");%Initial guess of variables
 x1=input("Enter the value of x1:");
-p0=fsolv(x0)
-p1=fsolv(x1) 
+Precision=input("Enter precision:");
+p0=fsolv(x0);% Is the function while in which function is defined
+p1=fsolv(x1);
 if(p0*p1>0)
 "no root between these points"
-endif
-while(abs(x1-x0)>0.0001)
+else
+while(abs(x1-x0)>Precision)
     x2=x1-[((x1-x0)/(p1-p0))*p1];
-    x2
+    sprintf("%5.5f",x2)
     iteration=iteration+1;
-    p2=fsolv(x2)
-    if (p1 * p2 < 0)
-        x1 = x2;
-        p1 = p2;
-     else
-     x0 = x2;
-     p0 = p2;
-    end
-end
+    p2=fsolv(x2);
+    x0=x1;
+    x1=x2;
+    p0=p1; 
+    p1=p2; 
+endwhile
+endif

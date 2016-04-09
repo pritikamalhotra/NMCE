@@ -23,5 +23,6 @@
 ## Created: 2016-04-05
 
 function [r] = f(x, y)
-r=(x+y);
+t=exp(x);
+r=(2*x*y+t)/(power(x,2)+x*t);
 endfunction

@@ -23,5 +23,5 @@
 ## Created: 2016-02-25
 
 function [p] = fsolv(x)
-p=cos(x)-x*exp(x);
+p=power(x,3)-2*x-5;
 endfunction

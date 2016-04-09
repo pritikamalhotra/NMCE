@@ -23,5 +23,5 @@
 ## Created: 2016-04-05
 
 function [r] = fsolver (x, y)
-r=x*x*(1+y);
+r=x+y;
 endfunction

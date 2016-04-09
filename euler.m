@@ -9,9 +9,7 @@ disp("Number of steps: "),disp(n_o_steps);
 x=x0
 y=y0
 while(x<x_final)
-y=y+h*2;
-y
-fsolver(x,y);
+y1=y+h*fsolver(x,y)
+y=y1;
 x+=h
 endwhile
-y
