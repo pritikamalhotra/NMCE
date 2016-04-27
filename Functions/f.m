@@ -23,5 +23,5 @@
 ## Created: 2016-04-05
 
 function [r] = f(x, y)
-r=x+y*y;
+r=power(x,2)*(1+y);
 endfunction

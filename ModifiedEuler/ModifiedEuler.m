@@ -8,18 +8,17 @@ x=x0;
 y=y0;
 flag=0
 while(x<x_final)
-if(flag==0)
-ms0=f(x,y);
-ynew=y+h*(ms0)
-xnew=x+h
-flag=1;
-else
+  if(flag==0)
+  ms0=f(x,y);
+  ynew=y+h*(ms0)
+  xnew=x+h
+  flag=1;
+  else
   ms=(ms0+f(xnew,ynew))/2;
   t=y+h*ms;
-  if(ynew==t)
-  {
-  y2=y+h*ms;
-  }
+    if(ynew==t)
+    y2=y+h*ms
+    break;
+    endif
   endif
-endif
 endwhile
