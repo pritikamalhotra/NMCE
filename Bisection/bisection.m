@@ -22,22 +22,26 @@
 ## Author: Pritika <pritika@pritika-Inspiron-3543>
 ## Created: 2016-04-26
 
-function bisection (x0, x1,iteration,Precision)
-p0=fsolv(x0) % Function is defined in fsolv
-p1=fsolv(x1)
+function [x,y]=bisection (initialguesspoint_1, initialguesspoint_2,iteration,Precision)
+x=[];
+y=[];
+p0=fsolv(initialguesspoint_1) % Function is defined in fsolv
+p1=fsolv(initialguesspoint_2)
 if(p0*p1>0)
 "no root between these points:"
 else
-  while(abs(x1-x0)> Precision)
-    x2 = (x1 +x0)/2;
-    x2
+  while(abs(initialguesspoint_2-initialguesspoint_1)>Precision)
+    root_value = (initialguesspoint_2 +initialguesspoint_1)/2;
+    root_value
     iteration=iteration+1;
-     p2=fsolv(x2);
-    if (p0 * p2 < 0)%The case when root lies between x2 and x0
-        x1 = x2;
+    x=[x;root_value];
+    y=[y;iteration];
+    p2=fsolv(root_value);
+    if (p0 * p2 < 0)%The case when root lies between root_value and initialguesspoint_1
+        initialguesspoint_2 = root_value;
         p1 = p2;
-    else %The case when root lies between x1 and x2
-     x0 = x2;
+    else %The case when root lies between initialguesspoint_2 and root_value
+     initialguesspoint_1 = root_value;
      p0 = p2;
     endif
   endwhile
