@@ -22,28 +22,36 @@
 ## Author: Pritika <pritika@pritika-Inspiron-3543>
 ## Created: 2016-04-26
 
-function [x,y]=bisection (initialguesspoint_1, initialguesspoint_2,iteration,Precision)
-x=[];
-y=[];
-p0=fsolv(initialguesspoint_1) % Function is defined in fsolv
-p1=fsolv(initialguesspoint_2)
-if(p0*p1>0)
-"no root between these points:"
+function [x,y] = bisection (initialguesspoint_1, initialguesspoint_2,iteration,Precision)
+x=[]; % x vector to store root_values
+y=[]; % y vector to store iteration values
+fvalue_initialguesspoint1 = fsolv (initialguesspoint_1) % Function is defined in fsolv
+fvalue_initialguesspoint2 = fsolv (initialguesspoint_2)
+if (fvalue_initialguesspoint1*fvalue_initialguesspoint2>0)
+printf("No root between these points.\n");
+printf("Try another set of values for which product of values at function is less than zero.\n");
 else
-  while(abs(initialguesspoint_2-initialguesspoint_1)>Precision)
-    root_value = (initialguesspoint_2 +initialguesspoint_1)/2;
-    root_value
-    iteration=iteration+1;
-    x=[x;root_value];
-    y=[y;iteration];
-    p2=fsolv(root_value);
-    if (p0 * p2 < 0)%The case when root lies between root_value and initialguesspoint_1
-        initialguesspoint_2 = root_value;
-        p1 = p2;
-    else %The case when root lies between initialguesspoint_2 and root_value
-     initialguesspoint_1 = root_value;
-     p0 = p2;
-    endif
-  endwhile
+while (abs (initialguesspoint_2-initialguesspoint_1)>Precision)
+  root_value = (initialguesspoint_2+initialguesspoint_1)/2;
+  root_value
+  iteration=iteration+1;
+  x = [x;root_value];
+  y = [y;iteration];
+  fvalue_root = fsolv (root_value);
+  if (fvalue_initialguesspoint1 * fvalue_root < 0) % The case when root lies between root_value and initialguesspoint_1
+  initialguesspoint_2 = root_value;
+  fvalue_initialguesspoint2 = fvalue_root;
+  else % The case when root lies between initialguesspoint_2 and root_value
+  initialguesspoint_1 = root_value;
+  fvalue_initialguesspoint1 = fvalue_root;
+  endif
+endwhile
+f = figure
+set(f, "visible", "on")
+plot(x,y);
+title("Bisection-plot");
+xlabel('Roots');
+ylabel('Iterations');
+print("MyPNG.png", "-dpng")             
 endif
 endfunction
