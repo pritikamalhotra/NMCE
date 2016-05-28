@@ -22,12 +22,22 @@
 ## Author: Pritika <pritika@pritika-Inspiron-3543>
 ## Created: 2016-04-26
 
-function euler (x0,y0,h,x_final)
-x=x0
-y=y0
-  while(x<x_final)
-  y1=y+h*fsolver(x,y)
+function [x,y] = euler (x0,y0,h,x_final)
+xvalues=[]; % x vector to store root_values
+yvalues=[]; % y vector to store iteration values
+x=x0;
+y=y0;
+while(x<x_final)
+  y1=y+h*fsolver(x,y);
+  yvalues=[yvalues;y1];
   y=y1;
-  x+=h
-  endwhile
+  x+=h;
+  xvalues=[xvalues;x];
+endwhile
+xvalues
+yvalues
+f = figure
+set(f, "visible", "on")
+plot(xvalues,yvalues);
+print("MyPNG.png", "-dpng")
 endfunction
