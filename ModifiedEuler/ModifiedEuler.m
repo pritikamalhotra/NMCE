@@ -6,19 +6,21 @@ x_final=input("Enter the value of required x:");
 h=input("Enter step-size:");
 x=x0;
 y=y0;
-flag=0
-while(x<x_final)
+flag=0;
+ms=1;
+while(x<=x_final)
   if(flag==0)
-  ms0=f(x,y);
-  ynew=y+h*(ms0)
-  xnew=x+h
+  y1=f(x,y);
+  y2=y1+h*ms
+  x=x+h
   flag=1;
   else
-  ms=(ms0+f(xnew,ynew))/2;
-  t=y+h*ms;
-    if(ynew==t)
-    y2=y+h*ms
-    break;
-    endif
-  endif
+    do{
+  y1=y2+y1;
+  ms=(ms+y1)/2;
+  y2new=y1+h*ms
+    }
+  until(abs(y2new-y2)>0.0001);
+flag=0;
+endif
 endwhile

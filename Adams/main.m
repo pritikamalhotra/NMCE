@@ -1,6 +1,6 @@
 clear
 clc
-x0=input("Enter value of x_0:");% THe largest value of x
+x0=input("Enter value of x_0:");% The largest value of x
 y0=input("Enter value of y_0:");
 x_final=input("Enter the value of required x:");
 h=input("Enter step-size:");

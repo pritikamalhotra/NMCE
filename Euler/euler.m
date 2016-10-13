@@ -12,21 +12,14 @@
 ## 
 ## You should have received a copy of the GNU General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-## -*- texinfo -*- 
-## @deftypefn {Function File} {@var{retval} =} euler (@var{input1}, @var{input2})
-##
-## @seealso{}
-## @end deftypefn
-
-## Author: Pritika <pritika@pritika-Inspiron-3543>
+## Author: Pritika <pritikamalhotra20@gmail.com>
 ## Created: 2016-04-26
 
-function [x,y] = euler (x0,y0,h,x_final)
+function [x,y] = euler (x_initial,y_initial,h,x_final)
 xvalues=[]; % x vector to store root_values
 yvalues=[]; % y vector to store iteration values
-x=x0;
-y=y0;
+x=x_initial;
+y=y_initial;
 while(x<x_final)
   y1=y+h*fsolver(x,y);
   yvalues=[yvalues;y1];
@@ -37,7 +30,7 @@ endwhile
 xvalues
 yvalues
 f = figure
-set(f, "visible", "on")
+set(f, "visible", "off")
 plot(xvalues,yvalues);
 print("MyPNG.png", "-dpng")
 endfunction

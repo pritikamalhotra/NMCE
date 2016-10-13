@@ -12,14 +12,7 @@
 ## 
 ## You should have received a copy of the GNU General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-## -*- texinfo -*- 
-## @deftypefn {Function File} {@var{retval} =} logarithmic (@var{input1}, @var{input2})
-##
-## @seealso{}
-## @end deftypefn
-
-## Author: Pritika <pritika@pritika-Inspiron-3543>
+## Author: Pritika <pritikamalhotra20@gmail.com>
 ## Created: 2016-04-26
 
 function [r] = logarithmic (x)

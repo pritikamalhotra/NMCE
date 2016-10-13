@@ -12,14 +12,7 @@
 ## 
 ## You should have received a copy of the GNU General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-## -*- texinfo -*- 
-## @deftypefn {Function File} {@var{retval} =} bisection (@var{input1}, @var{input2})
-##
-## @seealso{}
-## @end deftypefn
-
-## Author: Pritika <pritika@pritika-Inspiron-3543>
+## Author: Pritika <pritikamalhotra20@gmail.com>
 ## Created: 2016-04-26
 
 function [x,y] = bisection (initialguesspoint_1, initialguesspoint_2,iteration,Precision)
@@ -47,7 +40,7 @@ while (abs (initialguesspoint_2-initialguesspoint_1)>Precision)
   endif
 endwhile
 f = figure
-set(f, "visible", "on")
+set(f, "visible", "off")
 plot(x,y);
 title("Bisection-plot");
 xlabel('Roots');

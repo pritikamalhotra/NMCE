@@ -13,8 +13,8 @@
 ## You should have received a copy of the GNU General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ## Author: Pritika <pritikamalhotra20@gmail.com>
-## Created: 2016-04-05
+## Created: 2016-05-07
 
-function [r] = fsolver (x, y)
-r=x+y;
+function [p] = f_log (x)
+p=  x*log10(x)-1.2;
 endfunction

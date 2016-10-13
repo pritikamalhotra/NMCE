@@ -19,7 +19,7 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Pritika <pritika@pritika-Inspiron-3543>
+## Author: Pritika <pritikamalhotra20@gmail.com>
 ## Created: 2016-02-25
 
 function [p] = fsolv(x)
